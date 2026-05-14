@@ -4,8 +4,9 @@ const Employee = () => {
   return (
    <div className="overflow-x-auto">
     <div className="dropdown dropdown-hover top gap flex justify-end mx-2.5">
+        <div><button className="btn mx-2.5 my-2.5">Add</button></div>
   <div tabIndex={0} role="button" className="btn m-2.5">All</div>
-  <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-20 p-2 shadow-sm">
+  <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-20 w-20 p-2 shadow-sm">
     <li><a>Active</a></li>
     <li><a>Expired</a></li>
     <li><a>Revoked</a></li>
@@ -32,6 +33,10 @@ const Employee = () => {
         <td>Canada</td>
         <td>12/16/2020</td>
         <td>Blue</td>
+        <td><button className="btn btn-xs mx-2">Edit</button>
+        <button className="btn btn-xs">Delete</button>
+        </td>
+        
       </tr>
       <tr>
         <th>2</th>
