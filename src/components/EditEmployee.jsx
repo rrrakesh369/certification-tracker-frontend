@@ -12,7 +12,7 @@ const EditEmployee = () => {
      <div className='flex justify-center my-9'>
     <div className="card w-96 bg-base-100 card-lg shadow-sm">
   <div className="card-body ">
-    <h2 className="card-title">Create Certification</h2>
+    <h2 className="card-title">Edit Certification</h2>
 
     <label className="form-control w-full max-w-xs">
   <div className="label">

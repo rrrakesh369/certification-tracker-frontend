@@ -13,11 +13,9 @@ const EmployeeTable = ({ employees = [] }) => {
         <div className="overflow-x-auto">
 
             <div className="dropdown dropdown-hover flex justify-end mx-2.5">
-
-                <div tabIndex={0} role="button" className="btn m-2.5">
-                    {statusFilter}
-                </div>
-
+                <button className="btn my-2.5 mx-5"><Link to={"/add"}>Add</Link></button>
+                <div tabIndex={0} role="button" className="btn m-2.5">{statusFilter}</div>
+                    
                 <ul className="dropdown-content menu bg-base-100 rounded-box z-10 w-20 p-2 shadow-sm">
 
                     <li><a onClick={() => setStatusFilter("All")}>All</a></li>
@@ -53,7 +51,6 @@ const EmployeeTable = ({ employees = [] }) => {
 
                             <td>
                                 <div className="flex flex-col sm:flex-row gap-2">
-                                <button className="btn btn-xs"><Link to={"/add"}>Add</Link></button>
                                 <button className="btn btn-xs mx-2"><Link to={"/edit"}>Edit</Link></button>
                                 <button className="btn btn-xs">Delete</button>
                                 </div>
