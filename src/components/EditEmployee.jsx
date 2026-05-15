@@ -1,37 +1,15 @@
-import axios from 'axios';
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { storeEmployee } from '../utils/employeeSlice';
-import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../utils/constants';
 
+const EditEmployee = () => {
+     const [employeeId, setemployeeId] =useState();
+        const [certificationName, setcertificationName] =useState();  
+        const [issuedDate, setIssuedDate] =useState();
+        const [expiryDate, setExpiryDate] =useState();
+        const [status, setstatus] =useState();
 
-const AddEmployee = () => {
-    const [employeeId, setemployeeId] =useState();
-    const [certificationName, setcertificationName] =useState();  
-    const [issuedDate, setIssuedDate] =useState();
-    const [expiryDate, setExpiryDate] =useState();
-    const [status, setstatus] =useState();
-    const navigate=useNavigate();
-
-    const dispatch= useDispatch();
-     const [error, setError]= useState("");
-
-    const handleSubmit = async ()=>{
-     
-        try {
-           const res = await axios.post(BASE_URL,{
-             employeeId, certificationName, issuedDate, expiryDate, status
-           })
-           dispatch(storeEmployee(res?.data));
-           return navigate("/employee");
-        } catch (err) {
-            setError(err.message);
-                   
-        }
-    }
+        const [error, setError]= useState("");
   return (
-    <div className='flex justify-center my-9'>
+     <div className='flex justify-center my-9'>
     <div className="card w-96 bg-base-100 card-lg shadow-sm">
   <div className="card-body ">
     <h2 className="card-title">Create Certification</h2>
@@ -87,7 +65,7 @@ const AddEmployee = () => {
 </label>
 <p className='text-red-500'>{error}</p>
     <div className="justify-center card-actions">
-      <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+      <button className="btn btn-primary">Submit</button>
     </div>
   </div>
 </div>
@@ -95,4 +73,4 @@ const AddEmployee = () => {
   )
 }
 
-export default AddEmployee
+export default EditEmployee
