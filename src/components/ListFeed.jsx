@@ -6,12 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import EmployeeTable from './EmployeeTable';
 
 
-
-
 const ListFeed = () => {
     const list= useSelector((store)=>store.feed)
     // const navigate=useNavigate();
-    const dispatch= useDispatch();     
+    const dispatch= useDispatch();    
 
 
     const getFeed=async()=>{

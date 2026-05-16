@@ -24,7 +24,7 @@ const AddEmployee = () => {
              employeeId, certificationName, issuedDate, expiryDate, status
            })
            dispatch(storeEmployee(res?.data));
-           return navigate("/employee");
+           return navigate("/");
         } catch (err) {
             setError(err.message);
                    

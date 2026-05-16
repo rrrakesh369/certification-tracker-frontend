@@ -12,7 +12,7 @@ const NavBar = () => {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Employee</a></li>
+        <li className='text-xl'><a>Employee</a></li>
         {/* <li>
           <a>Parent</a>
           <ul className="p-2">
@@ -26,8 +26,8 @@ const NavBar = () => {
     <a className="btn btn-ghost text-xl">tracker-certification</a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><Link to="/">Employee</Link></li>
+    <ul className="menu menu-horizontal ">
+      <li class="text-lg font-semibold"><Link to="/">Employee</Link></li>
       {/* <li>
         <details>
           <summary>Parent</summary>
