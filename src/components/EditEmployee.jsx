@@ -1,27 +1,49 @@
+import axios from 'axios';
 import React, { useState } from 'react'
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { BASE_URL } from '../utils/constants';
+import { addUpdate } from '../utils/updateSlice';
 
 const EditEmployee = () => {
-     const [employeeId, setemployeeId] =useState();
-        const [certificationName, setcertificationName] =useState();  
-        const [issuedDate, setIssuedDate] =useState();
-        const [expiryDate, setExpiryDate] =useState();
-        const [status, setstatus] =useState();
+      const location= useLocation();
+     const eId= location.state?.employee;
 
+        const [certificationName, setcertificationName] =useState(eId?.certificationName || "");  
+        const [issuedDate, setIssuedDate] = useState(eId?.issuedDate?.split("T")[0] || "");
+        const [expiryDate, setExpiryDate] = useState(eId?.expiryDate?.split("T")[0] || "");
+        const [status, setstatus] =useState(eId?.status || "");
         const [error, setError]= useState("");
+
+        const dispatch= useDispatch();  
+        const navigate=useNavigate();
+
+    const handleUpdate= async () =>{
+      try {
+        const updatedData = {certificationName,issuedDate,expiryDate,status};
+
+        const res=await axios.put(`${BASE_URL}/${eId.employeeId}`, updatedData);
+        console.log(res.data)
+        dispatch(addUpdate(res?.data))
+        return navigate("/")
+      } catch (error) {
+        console.log(error);
+      }
+      
+    }
   return (
      <div className='flex justify-center my-9'>
     <div className="card w-96 bg-base-100 card-lg shadow-sm">
   <div className="card-body ">
     <h2 className="card-title">Edit Certification</h2>
-
-    <label className="form-control w-full max-w-xs">
+    {/* <label className="form-control w-full max-w-xs">
   <div className="label">
     <span className="label-text">Employee Id</span>
   </div>
   <input type="text" value={employeeId} className="input input-bordered w-full max-w-xs"
     onChange={(e)=>setemployeeId(e.target.value)}
   />
-</label>
+</label> */}
 
 <label className="form-control w-full max-w-xs">
   <div className="label">
@@ -65,7 +87,7 @@ const EditEmployee = () => {
 </label>
 <p className='text-red-500'>{error}</p>
     <div className="justify-center card-actions">
-      <button className="btn btn-primary">Submit</button>
+      <button className="btn btn-primary" onClick={handleUpdate}>Update</button>
     </div>
   </div>
 </div>

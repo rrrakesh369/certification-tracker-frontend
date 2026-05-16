@@ -7,7 +7,7 @@ const EmployeeTable = ({ employees = [] }) => {
     const filteredEmployees =
         statusFilter === "All"
             ? employees
-            : employees.filter((emp) => emp.status === statusFilter);
+            : employees.filter((emp) => emp.status?.trim().toUpperCase() === statusFilter);
 
     return (
         <div className="overflow-x-auto">
@@ -18,10 +18,10 @@ const EmployeeTable = ({ employees = [] }) => {
                     
                 <ul className="dropdown-content menu bg-base-100 rounded-box z-10 w-20 p-2 shadow-sm">
 
-                    <li><a onClick={() => setStatusFilter("All")}>All</a></li>
-                    <li><a onClick={() => setStatusFilter("ACTIVE")}>Active</a></li>
-                    <li><a onClick={() => setStatusFilter("EXPIRED")}>Expired</a></li>
-                    <li><a onClick={() => setStatusFilter("REVOKED")}>Revoked</a></li>
+                    <li><button onClick={() => setStatusFilter("All")}>All</button></li>
+                    <li><button onClick={() => setStatusFilter("ACTIVE")}>Active</button></li>
+                    <li><button onClick={() => setStatusFilter("EXPIRED")}>Expired</button></li>
+                    <li><button onClick={() => setStatusFilter("REVOKED")}>Revoked</button></li>
 
                 </ul>
             </div>
@@ -51,7 +51,7 @@ const EmployeeTable = ({ employees = [] }) => {
 
                             <td>
                                 <div className="flex flex-col sm:flex-row gap-2">
-                                <button className="btn btn-xs mx-2"><Link to={"/edit"}>Edit</Link></button>
+                                <button className="btn btn-xs mx-2"><Link to={"/edit"} state={{ employee: emp }}>Edit</Link></button>
                                 <button className="btn btn-xs">Delete</button>
                                 </div>
                             </td>

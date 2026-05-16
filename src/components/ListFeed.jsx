@@ -15,7 +15,7 @@ const ListFeed = () => {
     const getFeed=async()=>{
         if(list) return;
         try {
-             const res = await axios.get(`${BASE_URL}?status=ACTIVE`);
+             const res = await axios.get(`${BASE_URL}?status=${status}`);
              console.log(res.data)
               dispatch(addFeed(res?.data));
         } catch (error) {
