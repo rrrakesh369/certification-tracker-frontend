@@ -8,6 +8,7 @@ import appStore from "./utils/appStore"
 import ListFeed from "./components/ListFeed"
 import EditEmployee from "./components/EditEmployee"
 import Feed from "./components/Feed"
+import DeleteEmp from "./components/DeleteEmp"
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path="/feed/:id" element={<Feed/>}/> 
       <Route path="/add" element={<AddEmployee/>}/> 
       <Route path="/edit" element={<EditEmployee/>}/> 
+      <Route path="/delete" element={<DeleteEmp/>}/> 
       <Route path="/login" element={<Login/>}/>   
       <Route path="/profile" element={<Profile/>}/>
       </Route>   

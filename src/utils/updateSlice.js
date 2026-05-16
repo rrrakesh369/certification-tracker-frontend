@@ -7,11 +7,12 @@ const updateSlice = createSlice({
         addUpdate: (state,action)=>{
             return action.payload;
         },
-        removeUpdate: (state,action)=>{
-            return null;
+        removeEmpFromFeed: (state,action)=>{
+            const newFeed = state.filter((emp)=>emp._id !== action.payload)
+            return newFeed;
         }
     }
 });
-export const {addUpdate,removeUpdate}= updateSlice.actions;
+export const {addUpdate,removeEmpFromFeed}= updateSlice.actions;
 
 export default updateSlice.reducer;

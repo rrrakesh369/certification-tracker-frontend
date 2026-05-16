@@ -52,7 +52,7 @@ const EmployeeTable = ({ employees = [] }) => {
                             <td>
                                 <div className="flex flex-col sm:flex-row gap-2">
                                 <button className="btn btn-xs mx-2"><Link to={"/edit"} state={{ employee: emp }}>Edit</Link></button>
-                                <button className="btn btn-xs">Delete</button>
+                                <button className="btn btn-xs"><Link to={"/delete"} state={{ employee: emp }}>Delete</Link></button>
                                 </div>
                             </td>
 

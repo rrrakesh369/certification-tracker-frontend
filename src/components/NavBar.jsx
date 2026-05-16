@@ -27,7 +27,7 @@ const NavBar = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal ">
-      <li class="text-lg font-semibold"><Link to="/">Employee</Link></li>
+      <li className="text-lg font-semibold"><Link to="/">Employee</Link></li>
       {/* <li>
         <details>
           <summary>Parent</summary>
